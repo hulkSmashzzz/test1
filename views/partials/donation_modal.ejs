@@ -1,0 +1,26 @@
+<div class="modal" id="modal_donation">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Oops!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">x
+          </button>
+        </div>
+        <div class="modal-body" >
+          <p style="color: black;">Please Sign Up if you are a new user</p>
+          <p style="color: black;">Else Sign In</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if(data.user){ %>
+    <a class="main_btn"
+      href='https://www.payumoney.com/paybypayumoney/#/5EEA765247C2204DF73C315CBE80F865'>
+      donate here
+    </a>
+   <% } else{ %>
+    <a class="main_btn" href="#" data-toggle="modal" data-target="#modal_donation">
+      donate here
+    </a>
+    <% } %>

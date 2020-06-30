@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="eng">
+  <head>
+  <%- include('../partials/header') -%>
+
+  </head>
+<body>
+
+<!-- Navigation -->
+<%- include('../partials/nav' , {active: "events"},{data}); -%>
+
+<!--================ Banner Area =================-->
+<section class="banner_area">
+  <div class="banner_inner d-flex align-items-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="banner_content text-center">
+        <h2>Recent Events</h2>
+        <div class="page_link">
+          <a href="#">Home</a>
+          <a href="#">Events</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--================ End Banner Area =================-->
+
+<!-- ====================content section========================-->
+
+
+<section class="recent_event section_gap_custom">
+  <div class="container">
+
+    <div class="row">
+      <% for(var i=0;i < data.posts.length;i++)  { %>
+
+      <div class="col-lg-6">
+        <div class="single_event">
+          <div class="row">
+            <div class="col-lg-6 col-md-5">
+              <figure>
+                <% if(data.posts[i].image){ %>
+                <img class="img-fluid w-100" src="<%=data.posts[i].image%>" alt="">
+                <% } else{ %>
+                <img class="img-fluid w-100" src="http://placehold.it/400x400" alt="">
+                <% } %>  
+                <div class="img-overlay"></div>
+              </figure>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="content_wrapper">
+                <p class="date_time">25th February, 2017</p>
+                <h4 class="title">
+                  <a href="posts/<%= data.posts[i]._id%>"><%= data.posts[i].title %></a>
+                </h4>
+                <p><%= data.posts[i].subTitle%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>  
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== End of content section========================-->
+
+
+  
+
+<!-- Footer -->
+<%- include('../partials/footer') -%>
+
+<!--  JavaScript -->
+<%- include('../partials/script') -%>
+<script src="/assets/js/socket.io.js"></script>
+<script src="/assets/controllers/socket-config.js"></script>
+<script src="/assets/controllers/events-socket.js"></script>
+</body>    
+
+</html>
