@@ -20,7 +20,9 @@ require('dotenv').config()
 var app=express();
 module.exports.app = app;
 app.use(morgan('dev'));
-var server = app.listen(3000, () => console.log('Server started listening on port 3000!'));
+const port = process.env.PORT || 3000;
+app.listen(port);
+var server = app.listen(port, () => console.log('Server started listening on port 3000!'));
 connectDB();
 
 // mongoose.Promise = global.Promise;
