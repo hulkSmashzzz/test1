@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan')
 const path = require('path');
 
-const connectDB=require('./db/connection');
+const connectDB = require('./db/connection');
 const cookieParser = require('cookie-parser');
 //const expressHandlebars = require('express-handlebars');
 const flash = require('connect-flash');
@@ -12,8 +12,8 @@ const session = require('express-session');
 const passport = require('passport');
 var socket = require('socket.io');
 
-require('./config/passport');
-var User = require('./models/user');
+// require('./config/passport');
+// var User = require('./models/user');
 
 require('dotenv').config()
 
@@ -87,11 +87,9 @@ app.use((req, res, next) => {
 
 //app.use('/',require('./routes/index'));
 app.use(require('./routes/index'));
-app.use('/users',require('./routes/users'))
 app.use(require('./routes/about'));
 
 app.use(require('./routes/causes'));
-app.use(require('./routes/events'));
 app.use(require('./routes/contact'));
 app.use(require('./routes/gallery'));
 app.use(require('./routes/donation.js'));
